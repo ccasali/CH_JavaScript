@@ -1,19 +1,31 @@
-// Simulador de vuelos
+// Simulador astronómico
 
-// Continentes adminitidos
-let continentes = ["africa", "america", "asia", "europa", "oceania"]
+// Variables
+// Constantes en sistema internacional
+const CONSTANTE_GRAVEDAD = 6.67430 * (10 ** (-11));
+const VELOCIDAD_LUZ = 299792458;
 
-let coincidencia = false
-let inicio = null
-let fin = null
 
-while (coincidencia==false){
-    inicio = prompt("Ingresa tu continente de partida sin tildes:")
-    if(continentes.includes(inicio.toLowerCase())){
-        console.log("En la lista");
-        coincidencia = true;
-    }
-    else{
-        console.log("No está en la lista");
-    }
+//Variables
+let masaCuerpos = [];
+let maxCuerpos = 4;
+
+//Funciones
+
+function CalcularRadioSchwarzschild(masa){
+    let radioSchwarzschild = (2 * CONSTANTE_GRAVEDAD * masa) / (VELOCIDAD_LUZ ** 2);
+    return radioSchwarzschild 
+}
+
+for (let i = 0; i<maxCuerpos; i++) {
+    let mensaje = `Por favor ingresa la masa del cuerpo ${i + 1} en kg:`;
+    let masa;
+    do {
+        masa = prompt(mensaje);
+        if (isNaN(masa) || masa === null) {
+            mensaje = `Por favor ingresa un valor válido para la masa del cuerpo ${i + 1} en kg:`
+        }
+    } while (isNaN(masa) || masa === null)
+
+    masaCuerpos.push(parseFloat(masa))
 }
