@@ -78,6 +78,13 @@ function actualizarResultados() {
     let listaResultados = document.querySelector('ul');
     listaResultados.innerHTML = ''; // Limpiar la lista antes de agregar los resultados
 
+    /* acá sería interesante que por cada fila-cuerpo, los métodos aplicados sean una fila nueva. Por ejemplo:
+    * El cuerpo Cuerpo1 de masa ...... siguientes:
+        * Radio de Schwarzschild: 
+        * Velocidad de Escape:
+        * Peso comparado con el de la Tierra:
+    */
+   
     cuerpos.forEach((cuerpo, index) => {
         let item = document.createElement('li');
         item.textContent = `El cuerpo ${cuerpo.nombre} de masa ${cuerpo.masa} y diámetro ${cuerpo.diametro} tiene las siguientes características:\n` +
