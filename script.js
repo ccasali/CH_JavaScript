@@ -8,8 +8,7 @@ const ACELERACION_TIERRA = 9.80665
 
 
 //Variables
-let masaCuerpos = [];
-let diametroCuerpos = []
+let cuerpos = [];
 let maxCuerpos = 4;
 
 //Funciones
@@ -66,6 +65,8 @@ for (let i = 0; i<maxCuerpos; i++) {
 
     diametroCuerpos.push(parseFloat(diametro)*1000);
 }
+
+
 
 for (let i = 0; i<maxCuerpos; i++){
     mensaje = `La velocidad de escape del cuerpo ${i + 1} es:`
