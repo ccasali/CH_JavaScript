@@ -3,42 +3,67 @@
       {
         "nombre": "Mercurio",
         "diametro": 4879000,
-        "masa": 3.3e23
+        "masa": 3.3e23,
+        "distanciaMediaSol": 0.39,
+        "tiempoRotacion": 58.65,
+        "tiempoTraslacion": 0.24
       },
       {
         "nombre": "Venus",
         "diametro": 12104000,
-        "masa": 4.87e24
+        "masa": 4.87e24,
+        "distanciaMediaSol": 0.72,
+        "tiempoRotacion": 243.02,
+        "tiempoTraslacion": 0.62
       },
       {
         "nombre": "Tierra",
         "diametro": 12742000,
-        "masa": 5.97e24
+        "masa": 5.97e24,
+        "distanciaMediaSol": 1,
+        "tiempoRotacion": 1,
+        "tiempoTraslacion": 1
       },
       {
         "nombre": "Marte",
         "diametro": 6779000,
-        "masa": 6.42e23
+        "masa": 6.42e23,
+        "distanciaMediaSol": 1.52,
+        "tiempoRotacion": 1.03,
+        "tiempoTraslacion": 1.88
       },
       {
         "nombre": "Júpiter",
         "diametro": 139820000,
-        "masa": 1.898e27
+        "masa": 1.898e27,
+        "distanciaMediaSol": 5.2,
+        "tiempoRotacion": 0.41,
+        "tiempoTraslacion": 11.86
       },
       {
         "nombre": "Saturno",
         "diametro": 116460000,
-        "masa": 5.69e26
+        "masa": 5.69e26,
+        "distanciaMediaSol": 9.58,
+        "tiempoRotacion": 0.45,
+        "tiempoTraslacion": 29.46
       },
       {
         "nombre": "Urano",
         "diametro": 50724000,
-        "masa": 8.68e25
+        "masa": 8.68e25,
+        "distanciaMediaSol": 19.22,
+        "tiempoRotacion": 0.72,
+        "tiempoTraslacion": 84.01
       },
       {
         "nombre": "Neptuno",
         "diametro": 49244000,
-        "masa": 1.02e26
+        "masa": 1.02e26,
+        "distanciaMediaSol": 30.05,
+        "tiempoRotacion": 0.67,
+        "tiempoTraslacion": 164.79
       }
     ]
   }
+  
