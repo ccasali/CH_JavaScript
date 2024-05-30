@@ -9,32 +9,38 @@
 </head>
 
 <body>
-    <h1 id="titulo">Simulador Astronómico</h1>
-    <p id="explicacion">El simulador calcula algunos indicadores astronómicos como la velocidad de escape de un cuerpo celeste</p>
-
-    <h3>Ingrese hasta 4 elementos</h3>
+    <header>
+        <h1 id="titulo">Simulador Astronómico</h1>
+        <p id="explicacion">El simulador calcula algunos indicadores astronómicos como la velocidad de escape de un cuerpo celeste</p>
+        <h3>Ingrese hasta 4 elementos</h3>
+    </header>
 
     <p>Elementos disponibles: <span id="contador">4</span></p>
 
-    <section class="formulario">
-        <div class = seccion-formulario>
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre">
+    <section class="fomulario-resultados">
+
+        <div class="formulario">
+            <div class = seccion-formulario>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre">
+            </div>
+            <div class = seccion-formulario>
+                <label for="masa">Masa:</label>
+                <input type="number" id="masa" min="0">
+            </div>
+            <div class = seccion-formulario>
+                <label for="diametro">Diámetro:</label>
+                <input type="number" id="diametro" min="0">
+            </div>
+              <button onclick="agregarObjeto()" class="boton-formulario">Agregar Objeto</button>
         </div>
-        <div class = seccion-formulario>
-            <label for="masa">Masa:</label>
-            <input type="number" id="masa">
+
+        <div class="resultados">
+            <ul id="lista-resultados">
+
+            </ul>
         </div>
-        <div class = seccion-formulario>
-            <label for="diametro">Diámetro:</label>
-            <input type="number" id="diametro">
-        </div>
-          <button onclick="agregarObjeto()" class="boton-formulario">Agregar Objeto</button>
     </section>
 
-    <!-- Listado con los resultados -->
-    <ul>
-
-    </ul>
 </body>
 </html>
