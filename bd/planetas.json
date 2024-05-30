@@ -1,0 +1,44 @@
+{
+    "planetas": [
+      {
+        "nombre": "Mercurio",
+        "diametro": 4879000,
+        "masa": 3.3e23
+      },
+      {
+        "nombre": "Venus",
+        "diametro": 12104000,
+        "masa": 4.87e24
+      },
+      {
+        "nombre": "Tierra",
+        "diametro": 12742000,
+        "masa": 5.97e24
+      },
+      {
+        "nombre": "Marte",
+        "diametro": 6779000,
+        "masa": 6.42e23
+      },
+      {
+        "nombre": "Júpiter",
+        "diametro": 139820000,
+        "masa": 1.898e27
+      },
+      {
+        "nombre": "Saturno",
+        "diametro": 116460000,
+        "masa": 5.69e26
+      },
+      {
+        "nombre": "Urano",
+        "diametro": 50724000,
+        "masa": 8.68e25
+      },
+      {
+        "nombre": "Neptuno",
+        "diametro": 49244000,
+        "masa": 1.02e26
+      }
+    ]
+  }
