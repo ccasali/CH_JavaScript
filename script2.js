@@ -75,7 +75,7 @@ function actualizarContador() {
 }
 
 function actualizarResultados() {
-    let listaResultados = document.querySelector('ul');
+    let listaResultados = document.querySelector('#lista-resultados');
     listaResultados.innerHTML = ''; // Limpiar la lista antes de agregar los resultados
 
     /* acá sería interesante que por cada fila-cuerpo, los métodos aplicados sean una fila nueva. Por ejemplo:

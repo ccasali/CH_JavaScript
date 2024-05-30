@@ -1,52 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/style.css" />
     <script defer src="./script2.js"></script>
     <title>Calculadora Científica</title>
-</head>
+  </head>
 
-<body>
-    <header>
-        <h1 id="titulo">Simulador Astronómico</h1>
-        <nav>
-            <ul>
-                <li><a href="html/planetas.html">Planetas</a></li>
-                <li><a href="./index.html">Simulador</a></li>
-            </ul>
-        </nav>
-        <p id="explicacion">El simulador calcula algunos indicadores astronómicos como la velocidad de escape de un cuerpo celeste</p>
-        <h3>Ingrese hasta 4 elementos</h3>
-    </header>
+  <body>
+    <h1 id="titulo">Simulador Astronómico</h1>
+    <nav>
+      <ul>
+        <li><a href="html/planetas.html">Planetas</a></li>
+        <li><a href="./index.html">Simulador</a></li>
+      </ul>
+    </nav>
+    <p id="explicacion">
+      El simulador calcula algunos indicadores astronómicos como la velocidad de
+      escape de un cuerpo celeste
+    </p>
+    <h3>Ingrese hasta 4 elementos</h3>
 
     <p>Elementos disponibles: <span id="contador">4</span></p>
 
-    <section class="fomulario-resultados">
-
-        <div class="formulario">
-            <div class = seccion-formulario>
-                <label for="nombre">Nombre:</label>
-                <input type="text" id="nombre">
-            </div>
-            <div class = seccion-formulario>
-                <label for="masa">Masa:</label>
-                <input type="number" id="masa" min="0">
-            </div>
-            <div class = seccion-formulario>
-                <label for="diametro">Diámetro:</label>
-                <input type="number" id="diametro" min="0">
-            </div>
-              <button onclick="agregarObjeto()" class="boton-formulario">Agregar Objeto</button>
+    <section class="formulario-resultados">
+      <div class="formulario">
+        <div class="seccion-formulario">
+          <label for="nombre">Nombre:</label>
+          <input type="text" id="nombre" />
         </div>
-
-        <div class="resultados">
-            <ul id="lista-resultados">
-
-            </ul>
+        <div class="seccion-formulario">
+          <label for="masa">Masa:</label>
+          <input type="number" id="masa" min="0" />
         </div>
+        <div class="seccion-formulario">
+          <label for="diametro">Diámetro:</label>
+          <input type="number" id="diametro" min="0" />
+        </div>
+        <button onclick="agregarObjeto()" class="boton-formulario">
+          Agregar Objeto
+        </button>
+      </div>
+
+      <div class="resultados">
+        <ul id="lista-resultados"></ul>
+      </div>
     </section>
-
-</body>
+  </body>
 </html>
