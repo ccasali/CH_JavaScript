@@ -95,3 +95,9 @@ function actualizarResultados() {
     });
 }
 
+
+const url = "./bd/planetas.json"
+
+fetch(url)
+.then(res => res.json())
+.then(data => console.log)
