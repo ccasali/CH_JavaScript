@@ -6,6 +6,8 @@ const CONSTANTE_GRAVEDAD = 6.67430 * (10 ** (-11));
 const VELOCIDAD_LUZ = 299792458;
 const ACELERACION_TIERRA = 9.80665;
 
+const url = "/bd/planetas.json";
+
 // Variables
 let maxCuerpos = 4;
 let cuerpos = []  // array que contendrá a los objetos
@@ -95,9 +97,27 @@ function actualizarResultados() {
     });
 }
 
-
-const url = "./bd/planetas.json"
-
 fetch(url)
 .then(res => res.json())
-.then(data => console.log)
+.then(data => mostrarPlanetas(data))
+
+const contenedorPlaneta = document.querySelector('#container')
+
+function mostrarPlanetas(planetas){
+
+    planetas.forEach(planeta => {
+        let card = document.createElement('div');
+
+        card.innerHTML = `<h2>${planeta.nombre}<p>
+                          <button class="btn-agregar" id="${planeta.id}">agregar</button>
+                         `
+
+        contenedorPlaneta.appendChild(card);
+    })
+    const botonesAgregar = document.querySelectorAll('.btn-agregar');
+    botonesAgregar.forEach(boton => {
+        boton.addEventListener('click', (e) => agregarAVisitas(e, productos));
+    })
+}
+
+
