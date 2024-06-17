@@ -13,6 +13,7 @@ const url = "/bd/planetas.json";
 let maxCuerpos = 4;
 let cuerpos = [];  // array que contendrá a los objetos
 let aVisitar = [];
+let dataPlanetas = [];
 
 
 //Clase CuerpoCeleste es la que tendrá todo lo asociado al cuerpo como atributo, y además tiene los métodos que realizan operaciones con estos
@@ -103,12 +104,18 @@ function actualizarResultados() {
 // acceso a planetas y agregarlos a pantalla
 
 fetch(url)
-.then(res => res.json())
-.then(data => mostrarPlanetas(data))
+    .then(res => res.json())
+    .then(data => {
+        dataPlanetas = data;
+        mostrarPlanetas(dataPlanetas);
+    })
+    .catch(error => console.error('Error al cargar los planetas:', error));
 
-const contenedorPlaneta = document.querySelector('#container')
+
 
 function mostrarPlanetas(planetas){
+    const contenedorPlaneta = document.querySelector('#container')
+    contenedorPlaneta.innerHTML = '' // limpiar antes de dibujar
 
     planetas.forEach(planeta => {
         let card = document.createElement('div');
@@ -122,9 +129,34 @@ function mostrarPlanetas(planetas){
     })
     const botonesAgregar = document.querySelectorAll('.btn-agregar');
     botonesAgregar.forEach(boton => {
-        boton.addEventListener('click', (e) => agregarAVisitas(e, productos));
+        boton.addEventListener('click', (e) => agregarAVisitas(e, planetas));
     })
 }
 
+function agregarAVisitas(e, planetas)
+ {
+    try {
+        const idPlaneta = e.target.id;
+        const planetaSeleccionado = planetas.find(planeta => planeta.id === idPlaneta);
+        if (planetaSeleccionado) {
+            aVisitar.push(idPlaneta);
+        } else {
+            throw new Error('Planeta no encontrado');
+        }
+    } catch (error) {
+        ('Error al agregar planeta a visitar');
+    }
+ }  
 const btnEnviarFormulario = document.getElementById('botonEnviarFormulario');
+
 btnEnviarFormulario.addEventListener('click', agregarObjeto);
+
+// filtrado por barra
+const barraBusqueda = document.getElementById('barra-busqueda');
+barraBusqueda.addEventListener('input', (e) =>{
+    const textoBuscado = e.target.value.toLowerCase(); // para no diferenciar mayúsculas o minúsculas en input
+    const planetasFiltrados = dataPlanetas.filter(planeta =>
+        planeta.nombre.toLowerCase().includes(textoBuscado)
+    );
+    mostrarPlanetas(planetasFiltrados);
+})
