@@ -47,4 +47,9 @@ body {
   border-radius: 10%;
   margin: 10px;
 }
+
+.barra {
+  display: flex;
+  justify-content: center;
+}
 /*# sourceMappingURL=style.css.map */

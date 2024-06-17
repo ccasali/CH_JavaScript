@@ -99,6 +99,7 @@ function actualizarResultados() {
     });
 }
 
+
 // acceso a planetas y agregarlos a pantalla
 
 fetch(url)
@@ -125,4 +126,5 @@ function mostrarPlanetas(planetas){
     })
 }
 
-
+const btnEnviarFormulario = document.getElementById('botonEnviarFormulario');
+btnEnviarFormulario.addEventListener('click', agregarObjeto);
