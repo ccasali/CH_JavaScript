@@ -31,4 +31,17 @@ body {
   width: 70%;
 }
 
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.planeta {
+  display: flex;
+  width: 25%;
+  padding: 10px;  
+  justify-content: center;
+  align-items: center;
+}
 /*# sourceMappingURL=style.css.map */

@@ -6,11 +6,13 @@ const CONSTANTE_GRAVEDAD = 6.67430 * (10 ** (-11));
 const VELOCIDAD_LUZ = 299792458;
 const ACELERACION_TIERRA = 9.80665;
 
+// declarar acceso a "base de datos". El acceso propiamente y uso están después de las funciones calculadora
 const url = "/bd/planetas.json";
 
 // Variables
 let maxCuerpos = 4;
-let cuerpos = []  // array que contendrá a los objetos
+let cuerpos = [];  // array que contendrá a los objetos
+let aVisitar = [];
 
 
 //Clase CuerpoCeleste es la que tendrá todo lo asociado al cuerpo como atributo, y además tiene los métodos que realizan operaciones con estos
@@ -97,6 +99,8 @@ function actualizarResultados() {
     });
 }
 
+// acceso a planetas y agregarlos a pantalla
+
 fetch(url)
 .then(res => res.json())
 .then(data => mostrarPlanetas(data))
@@ -107,8 +111,9 @@ function mostrarPlanetas(planetas){
 
     planetas.forEach(planeta => {
         let card = document.createElement('div');
+        card.classList.add('planeta');
 
-        card.innerHTML = `<h2>${planeta.nombre}<p>
+        card.innerHTML = `<h3>${planeta.nombre}<p>
                           <button class="btn-agregar" id="${planeta.id}">agregar</button>
                          `
 
