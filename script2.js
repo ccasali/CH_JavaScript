@@ -114,7 +114,7 @@ function mostrarPlanetas(planetas){
         card.classList.add('planeta');
 
         card.innerHTML = `<h3>${planeta.nombre}<p>
-                          <button class="btn-agregar" id="${planeta.id}">agregar</button>
+                          <button class="btn-agregar" id="${planeta.id}">Agregar</button>
                          `
 
         contenedorPlaneta.appendChild(card);
