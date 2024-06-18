@@ -120,8 +120,8 @@ function mostrarPlanetas(planetas){
             let card = document.createElement('div');
             card.classList.add('planeta');
     
-            card.innerHTML = `<h3>${planeta.nombre}<p>
-                              <button class="btn-agregar" id="${planeta.id}">Agregar</button>
+            card.innerHTML = `<h3>${planeta.nombre}</h3>
+                              <button class="btn-agregar" data-id="${planeta.id}">Agregar</button>
                              `
            contenedorPlaneta.appendChild(card);
         });
@@ -132,20 +132,11 @@ function mostrarPlanetas(planetas){
     }
 }
 
-function agregarAVisitas(e, planetas)
- {
-    try {
-        const idPlaneta = e.target.id;
-        const planetaSeleccionado = planetas.find(planeta => planeta.id === idPlaneta);
-        if (planetaSeleccionado) {
-            aVisitar.push(idPlaneta);boton
-        } else {
-            throw new Error('Planeta no encontrado');
-        }
-    } catch (error) {
-        console.error('Error al agregar planeta a visitar', error);
-    }
- }  
+function agregarAVisitas(e, planetas){
+    const idPlaneta = e.target.dataset.id;
+    //const planetaSeleccionado = planetas.find(planeta => planeta.id === idPlaneta);
+    aVisitar.push(e.target.dataset.id);
+}
 
 const btnEnviarFormulario = document.getElementById('botonEnviarFormulario');
 
