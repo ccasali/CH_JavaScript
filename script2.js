@@ -12,7 +12,7 @@ const url = "/bd/planetas.json";
 // Variables
 let maxCuerpos = 4;
 let cuerpos = [];  // array que contendrá a los objetos
-let aVisitar = [];
+let aVisitar = JSON.parse(localStorage.getItem('aVisitar')) || [];
 let dataPlanetas = [];
 
 
@@ -108,6 +108,7 @@ fetch(url)
     .then(data => {
         dataPlanetas = data;
         mostrarPlanetas(dataPlanetas);
+        mostrarSeleccionados();
     })
     .catch(error => console.error('Error al cargar los planetas:', error));
 
@@ -120,7 +121,7 @@ function mostrarPlanetas(planetas){
             let card = document.createElement('div');
             card.classList.add('planeta');
     
-            card.innerHTML = `<h3>${planeta.nombre}</h3>
+            card.innerHTML = `<p>${planeta.nombre}</p>
                               <button class="btn-agregar" data-id="${planeta.id}">Agregar</button>
                              `
            contenedorPlaneta.appendChild(card);
@@ -134,8 +135,26 @@ function mostrarPlanetas(planetas){
 
 function agregarAVisitas(e, planetas){
     const idPlaneta = e.target.dataset.id;
-    //const planetaSeleccionado = planetas.find(planeta => planeta.id === idPlaneta);
-    aVisitar.push(e.target.dataset.id);
+    if (!aVisitar.includes(idPlaneta)){
+        aVisitar.push(e.target.dataset.id);
+        localStorage.setItem('aVisitar', JSON.stringify(aVisitar));
+        mostrarSeleccionados();
+    }
+    else {
+        console.log("No se admiten duplicados");
+    }
+}
+
+function mostrarSeleccionados() {
+    const contenedorSeleccionados = document.getElementById('seleccionados');
+    if (contenedorSeleccionados) {
+        contenedorSeleccionados.innerHTML = ''; // Limpiar antes de actualizar
+        aVisitar.forEach(idPlaneta => {
+            let item = document.createElement('div');
+            item.textContent = `ID del planeta seleccionado: ${idPlaneta}`;
+            contenedorSeleccionados.appendChild(item);
+        });
+    }
 }
 
 const btnEnviarFormulario = document.getElementById('botonEnviarFormulario');
@@ -155,4 +174,5 @@ if(barraBusqueda){
         mostrarPlanetas(planetasFiltrados);
     });
 }
+
 
