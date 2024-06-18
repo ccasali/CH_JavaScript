@@ -112,25 +112,24 @@ fetch(url)
     .catch(error => console.error('Error al cargar los planetas:', error));
 
 
-
 function mostrarPlanetas(planetas){
     const contenedorPlaneta = document.querySelector('#container')
-    contenedorPlaneta.innerHTML = '' // limpiar antes de dibujar
-
-    planetas.forEach(planeta => {
-        let card = document.createElement('div');
-        card.classList.add('planeta');
-
-        card.innerHTML = `<h3>${planeta.nombre}<p>
-                          <button class="btn-agregar" id="${planeta.id}">Agregar</button>
-                         `
-
-        contenedorPlaneta.appendChild(card);
-    })
-    const botonesAgregar = document.querySelectorAll('.btn-agregar');
-    botonesAgregar.forEach(boton => {
-        boton.addEventListener('click', (e) => agregarAVisitas(e, planetas));
-    })
+    if (contenedorPlaneta){
+        contenedorPlaneta.innerHTML = ''; // limpiar antes de dibujar
+        planetas.forEach(planeta => {
+            let card = document.createElement('div');
+            card.classList.add('planeta');
+    
+            card.innerHTML = `<h3>${planeta.nombre}<p>
+                              <button class="btn-agregar" id="${planeta.id}">Agregar</button>
+                             `
+           contenedorPlaneta.appendChild(card);
+        });
+        const botonesAgregar = document.querySelectorAll('.btn-agregar');
+        botonesAgregar.forEach(boton => {
+            boton.addEventListener('click', (e) => agregarAVisitas(e, planetas));
+        });
+    }
 }
 
 function agregarAVisitas(e, planetas)
@@ -139,24 +138,30 @@ function agregarAVisitas(e, planetas)
         const idPlaneta = e.target.id;
         const planetaSeleccionado = planetas.find(planeta => planeta.id === idPlaneta);
         if (planetaSeleccionado) {
-            aVisitar.push(idPlaneta);
+            aVisitar.push(idPlaneta);boton
         } else {
             throw new Error('Planeta no encontrado');
         }
     } catch (error) {
-        ('Error al agregar planeta a visitar');
+        console.error('Error al agregar planeta a visitar', error);
     }
  }  
+
 const btnEnviarFormulario = document.getElementById('botonEnviarFormulario');
 
-btnEnviarFormulario.addEventListener('click', agregarObjeto);
+if (btnEnviarFormulario){  //por consola se quejaba que no estaba definido, por eso lo metí dentro del in
+    btnEnviarFormulario.addEventListener('click', agregarObjeto);
+}
 
 // filtrado por barra
 const barraBusqueda = document.getElementById('barra-busqueda');
-barraBusqueda.addEventListener('input', (e) =>{
-    const textoBuscado = e.target.value.toLowerCase(); // para no diferenciar mayúsculas o minúsculas en input
-    const planetasFiltrados = dataPlanetas.filter(planeta =>
-        planeta.nombre.toLowerCase().includes(textoBuscado)
-    );
-    mostrarPlanetas(planetasFiltrados);
-})
+if(barraBusqueda){
+    barraBusqueda.addEventListener('input', (e) =>{
+        const textoBuscado = e.target.value.toLowerCase(); // para no diferenciar mayúsculas o minúsculas en input
+        const planetasFiltrados = dataPlanetas.filter(planeta =>
+            planeta.nombre.toLowerCase().includes(textoBuscado)
+        );
+        mostrarPlanetas(planetasFiltrados);
+    });
+}
+
